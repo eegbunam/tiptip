@@ -9,25 +9,25 @@
 /* Begin PBXBuildFile section */
 		43C0EF25247E15B900D8E80C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0EF24247E15B900D8E80C /* AppDelegate.swift */; };
 		43C0EF27247E15B900D8E80C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0EF26247E15B900D8E80C /* SceneDelegate.swift */; };
-		43C0EF29247E15B900D8E80C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0EF28247E15B900D8E80C /* ViewController.swift */; };
 		43C0EF2C247E15B900D8E80C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C0EF2A247E15B900D8E80C /* Main.storyboard */; };
 		43C0EF2E247E15BD00D8E80C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43C0EF2D247E15BD00D8E80C /* Assets.xcassets */; };
 		43C0EF31247E15BD00D8E80C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C0EF2F247E15BD00D8E80C /* LaunchScreen.storyboard */; };
 		43C0EF39247E22E300D8E80C /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0EF38247E22E200D8E80C /* TipViewController.swift */; };
 		43C0EF3B247E269D00D8E80C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0EF3A247E269D00D8E80C /* Utilities.swift */; };
+		43F9899B247E4CEE001F0E6D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F9899A247E4CEE001F0E6D /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		43C0EF21247E15B900D8E80C /* tipTip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tipTip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C0EF24247E15B900D8E80C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C0EF26247E15B900D8E80C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		43C0EF28247E15B900D8E80C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43C0EF2B247E15B900D8E80C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43C0EF2D247E15BD00D8E80C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43C0EF30247E15BD00D8E80C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43C0EF32247E15BD00D8E80C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43C0EF38247E22E200D8E80C /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		43C0EF3A247E269D00D8E80C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		43F9899A247E4CEE001F0E6D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +62,8 @@
 			children = (
 				43C0EF24247E15B900D8E80C /* AppDelegate.swift */,
 				43C0EF26247E15B900D8E80C /* SceneDelegate.swift */,
-				43C0EF28247E15B900D8E80C /* ViewController.swift */,
 				43C0EF38247E22E200D8E80C /* TipViewController.swift */,
+				43F9899A247E4CEE001F0E6D /* SettingsViewController.swift */,
 				43C0EF2A247E15B900D8E80C /* Main.storyboard */,
 				43C0EF3A247E269D00D8E80C /* Utilities.swift */,
 				43C0EF2D247E15BD00D8E80C /* Assets.xcassets */,
@@ -144,11 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43C0EF29247E15B900D8E80C /* ViewController.swift in Sources */,
 				43C0EF25247E15B900D8E80C /* AppDelegate.swift in Sources */,
 				43C0EF39247E22E300D8E80C /* TipViewController.swift in Sources */,
 				43C0EF3B247E269D00D8E80C /* Utilities.swift in Sources */,
 				43C0EF27247E15B900D8E80C /* SceneDelegate.swift in Sources */,
+				43F9899B247E4CEE001F0E6D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,17 +22,28 @@ class TipViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+       // view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         
         title = "Calculate Tip"
+        
+        
+        navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleBarButton)), animated: true)
+        navigationController?.navigationBar.tintColor = .black
         setUpView()
         
         // Do any additional setup after loading the view.
     }
     
-    
+    @objc func handleBarButton(){
+        
+         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "settings") as SettingsViewController
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
+        
+    }
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
     }
