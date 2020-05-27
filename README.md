@@ -14,7 +14,7 @@ The following **required** functionality is complete:
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2020] [Ebuka Egbunam Ibekie]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
