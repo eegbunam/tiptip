@@ -10,7 +10,7 @@
         <!--Tip View Controller-->
         <scene sceneID="Wev-V4-8ql">
             <objects>
-                <viewController id="68C-eR-7Yg" customClass="TipViewController" customModule="tipTip" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tip" id="68C-eR-7Yg" customClass="TipViewController" customModule="tipTip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="czd-HK-32r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,8 +117,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="92y-iv-PHA"/>
                     </view>
+                    <connections>
+                        <segue destination="aCC-QV-170" kind="unwind" identifier="goBack" unwindAction="unwindToVC1WithSegue:" id="iQO-Ai-zZH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPw-vD-7O6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="aCC-QV-170" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3972" y="119"/>
         </scene>
