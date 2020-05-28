@@ -12,7 +12,7 @@ import UIKit
 
 class TipViewController: UIViewController {
     
-    
+    //Iboutlets
     @IBOutlet weak var billTextField: UITextField!
     
     @IBOutlet weak var tipLabel: UILabel!
@@ -20,35 +20,27 @@ class TipViewController: UIViewController {
     @IBOutlet weak var totalAmountLabel: UILabel!
     
     @IBOutlet weak var totalLabel: UILabel!
+        //variables
     let defaults = UserDefaults.standard
-    
     var defaultTip : Double?  = 12.0
     
     
-    @IBAction func unwindToVC1(segue:UIStoryboardSegue) { }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        defaults.set(billTextField.text, forKey: "mybill")
-        defaults.set(, forKey: "mybill")
-    }
     
+    
+        //view controller life cycle
     override func viewWillAppear(_ animated: Bool) {
-        if let bill = billTextField.text {
-            print(defaultTip)
-            let finalBill = Double(bill)
-            let tip = Tip(bill: finalBill, percentage: defaultTip)
-            totalAmountLabel.text = tip.totalAmount
-            tipLabel.text = tip.discription
-            
-        }
+        handleTip()
         
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Calculate Tip"
-        navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleBarButton)), animated: true)
+        navigationItem.setRightBarButton(UIBarButtonItem(title: "Change Tip", style: .done, target: self, action: #selector(handleBarButton)), animated: true)
         navigationController?.navigationBar.tintColor = .black
         setUpView()
         
@@ -57,35 +49,47 @@ class TipViewController: UIViewController {
     @objc func handleBarButton(){
         
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "settings") as SettingsViewController
-        
         navigationController?.pushViewController(vc, animated: true)
         
     }
     
     
-    func handlechnageTip () {
-        if let bill = billTextField.text {
-            let finalBill = Double(bill)
-            let tip = Tip(bill: finalBill, percentage: defaultTip)
-            totalAmountLabel.text = tip.totalAmount
-            tipLabel.text = tip.discription
-            
-            
-        }
-        
-    }
+        //Ibactions
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
     }
     
     
     @IBAction func billIsChanged(_ sender: Any) {
-        if let bill = billTextField.text {
-            let finalBill = Double(bill)
-            let tip = Tip(bill: finalBill, percentage: defaultTip)
-            totalAmountLabel.text = tip.totalAmount
-            tipLabel.text = tip.discription
+        handleTip()
+        
+    }
+    
+        //functions
+    
+    func handleTip()  {
+        let stringValue = defaults.string(forKey: "mybill") ?? "no value"
+        let tipValue = defaults.double(forKey: "tip")
+        
+        if stringValue == "no value"{
+            if let bill = billTextField.text {
+                let finalBill = Double(bill)
+                let tip = Tip(bill: finalBill, percentage: defaultTip)
+                totalAmountLabel.text = tip.totalAmount
+                tipLabel.text = tip.discription
+                defaults.set(billTextField.text, forKey: "mybill")
+                
+                
+            }
             
+        }else{
+            if let bill = billTextField.text {
+                let finalBill = Double(bill)
+                let tip = Tip(bill: finalBill, percentage: tipValue)
+                totalAmountLabel.text = tip.totalAmount
+                tipLabel.text = tip.discription
+                
+            }
             
         }
         
@@ -99,60 +103,10 @@ class TipViewController: UIViewController {
         Utilities.styleLabel(totalAmountLabel)
         Utilities.styleLabel(totalLabel)
     }
-}
-
-
-
-
-struct Tip {
     
-    var bill : Double?
-    
-    var percentage : Double? = 0.0
-    
-    init(bill :Double? , percentage : Double?) {
-        self.bill = bill
-        self.percentage = percentage
-    }
-    
-    var discription : String {
-        guard let percentage = percentage else {
-            return "10% Tip :$0.00"
-            
-        }
-        
-        return "\(percentage)% Tip : \(tip)"
-    }
-    
-    var tip : String {
-        guard let bill = bill , let percentage = percentage else{
-            return "$0.00"
-        }
-        return  String(format: "$%.2f", percentage/100 * bill)
-    }
-    
-    var totalAmount  : String {
-        guard let bill = bill , let percentage = percentage else{
-            return "$0.00"
-        }
-        if percentage == 0.0{
-            let tip =  bill + (0.1 * bill)
-            return  String(format: "$%.2f", tip)
-        }else{
-            let tip =  bill + (percentage/100 * bill)
-            return  String(format: "$%.2f", tip)
-        }
-        
-    }
-    
-    
-}
-
-extension TipViewController : settingsDelegate {
-    func didChangeTip(tip: Double) {
   
-        
-    }
 }
+
+
 
 

@@ -14,7 +14,7 @@ protocol settingsDelegate {
 }
 
 class SettingsViewController: UIViewController {
-    
+    let defaults = UserDefaults.standard
     var delegate :settingsDelegate?
   
     var changeTipBtn : UIButton = {
@@ -63,19 +63,28 @@ class SettingsViewController: UIViewController {
     
     
     @objc func handleChangeTip(){
-        print("button is being pressed")
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "tip") as! TipViewController
-        self.delegate = vc
-
-        delegate?.didChangeTip(tip: Double(tipTextField.text!)!)
-        performSegue(withIdentifier: "goBack", sender: self)
+        
+        
+        guard let text = tipTextField.text else {
+            //show notifiation
+            return
+        }
+        
+        guard let doubleValue = Double(text) else {
+            //show notification
+            return
+        }
+        
+        defaults.set(doubleValue, forKey: "tip")
+        navigationController?.popViewController(animated: true)
+    
       
     }
 
     
     
     func setUpView(){
-        
+    
         let firstStack = UIStackView(arrangedSubviews: [tipTextField, changeTipBtn])
         firstStack.translatesAutoresizingMaskIntoConstraints = false
         firstStack.axis = .vertical
