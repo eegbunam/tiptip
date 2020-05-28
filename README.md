@@ -28,10 +28,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
-<video>
-  <source src='https://www.youtube.com/watch?v=JAcSdXcoZVc'" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img src='https://drive.google.com/file/d/1sphIvqqXb9zJtQfY3f1wFB_y1hRI2z6i/view?usp=sharing' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 
