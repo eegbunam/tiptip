@@ -9,22 +9,17 @@
 import UIKit
 
 
-
 class TipViewController: UIViewController {
     
     //Iboutlets
     @IBOutlet weak var billTextField: UITextField!
-    
     @IBOutlet weak var tipLabel: UILabel!
-    
     @IBOutlet weak var totalAmountLabel: UILabel!
-    
     @IBOutlet weak var totalLabel: UILabel!
-    
-    
     @IBOutlet weak var peoplePicker: UIPickerView!
     
-        //variables
+    
+    //variables
     let defaults = UserDefaults.standard
     var defaultTip : Double?  = 12.0
     var globaltotalAmount : Double?
@@ -33,13 +28,16 @@ class TipViewController: UIViewController {
     
     
     
-        //view controller life cycle
+    //view controller life cycle
     override func viewWillAppear(_ animated: Bool) {
+        let stringValue = defaults.string(forKey: "mybill") ?? "no value"
+        let totalAmount = defaults.string(forKey: "mytotal") ?? "no value"
+        print("\(stringValue)stringval" , totalAmount , "values of things")
+        billTextField.text = stringValue
+        totalAmountLabel.text = totalAmount
+        peoplePicker.selectRow(defaults.integer(forKey: "row"), inComponent: 0, animated: true)
         handleTip()
-        
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,23 +45,22 @@ class TipViewController: UIViewController {
         title = "Calculate Tip"
         navigationItem.setRightBarButton(UIBarButtonItem(title: "Change Tip", style: .done, target: self, action: #selector(handleBarButton)), animated: true)
         navigationController?.navigationBar.tintColor = .black
-        billTextField.becomeFirstResponder()
-        
         peoplePicker.delegate = self
+        billTextField.becomeFirstResponder()
         
         setUpView()
         
     }
     
     @objc func handleBarButton(){
-        
+        saveData()
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "settings") as SettingsViewController
         navigationController?.pushViewController(vc, animated: true)
         
     }
     
     
-        //Ibactions
+    //Ibactions
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
     }
@@ -74,22 +71,20 @@ class TipViewController: UIViewController {
         
     }
     
-        //functions
+    //functions
     
     func handleTip(){
         let stringValue = defaults.string(forKey: "mybill") ?? "no value"
         let tipValue = defaults.double(forKey: "tip")
         
-        if stringValue == "no value"{
+        if stringValue == "no value" {
             if let bill = billTextField.text {
                 let finalBill = Double(bill)
                 let tip = Tip(bill: finalBill, percentage: defaultTip)
                 globaltotalAmount = tip.totolAmountDouble
                 tipLabel.text = tip.discription
-                totalAmountLabel.text = Tip.divide(bill: globaltotalAmount, by: Double(row + 1 ))
-                defaults.set(billTextField.text, forKey: "mybill")
-                
-                
+                totalAmountLabel.text = Tip.divide(bill: globaltotalAmount, by: Double(peoplePicker.selectedRow(inComponent: 0) + 1 ))
+                saveData()
             }
             
         }else{
@@ -97,8 +92,9 @@ class TipViewController: UIViewController {
                 let finalBill = Double(bill)
                 let tip = Tip(bill: finalBill, percentage: tipValue)
                 globaltotalAmount =  tip.totolAmountDouble
-                totalAmountLabel.text = Tip.divide(bill: globaltotalAmount, by: Double(row + 1 ))
+                totalAmountLabel.text = Tip.divide(bill: globaltotalAmount, by: Double(peoplePicker.selectedRow(inComponent: 0) + 1))
                 tipLabel.text = tip.discription
+                saveData()
                 
             }
             
@@ -106,7 +102,11 @@ class TipViewController: UIViewController {
         
     }
     
-    
+    func saveData(){
+        defaults.set(row, forKey: "row")
+        defaults.set(billTextField.text, forKey: "mybill")
+        defaults.set(totalAmountLabel.text, forKey: "mytotal")
+    }
     
     func setUpView(){
         Utilities.styleTextField(billTextField)
@@ -115,7 +115,7 @@ class TipViewController: UIViewController {
         Utilities.styleLabel(totalLabel)
     }
     
-  
+    
 }
 
 //Hnadle PickerView
@@ -134,8 +134,8 @@ extension TipViewController : UIPickerViewDelegate , UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.row = row
         totalAmountLabel.text = Tip.divide(bill: globaltotalAmount, by: Double(row + 1 ))
+        saveData()
     }
     
     

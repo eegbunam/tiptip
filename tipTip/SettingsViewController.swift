@@ -83,7 +83,6 @@ class SettingsViewController: UIViewController {
         
         
         defaults.set(doubleValue, forKey: "tip")
-        defaults.synchronize()
         navigationController?.popViewController(animated: true)
         
         
