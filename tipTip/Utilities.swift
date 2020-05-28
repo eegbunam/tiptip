@@ -50,9 +50,6 @@ class Utilities {
         label.font = UIFont(descriptor: UIFontDescriptor(fontAttributes: [UIFontDescriptor.AttributeName.name: "ArialRoundedMTBold"]), size: 17)
         label.adjustsFontSizeToFitWidth = true
     
-        
-        
-        
     }
     
 
