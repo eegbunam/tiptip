@@ -49,6 +49,29 @@ struct Tip {
         
     }
     
+    var totolAmountDouble : Double {
+        guard let bill = bill , let percentage = percentage else{
+            return 0.00
+             }
+        let tip =  bill + (percentage/100 * bill)
+        return  tip
+    }
+    
+    
+    static func divide(bill : Double? , by people: Double?) -> String{
+        guard let bill = bill else {
+             return "$0.00"
+        }
+        guard let people = people else{
+             return "$0.00"
+            
+        }
+        let finalBill = bill/people
+        
+        return String(format: "$%.2f", finalBill)
+        
+    }
+    
     
 }
 

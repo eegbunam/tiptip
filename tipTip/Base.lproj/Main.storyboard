@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="hUB-fq-Pa9">
-                                <rect key="frame" x="10" y="129" width="355" height="214"/>
+                                <rect key="frame" x="10" y="129" width="355" height="224"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Bill Amount " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RFd-j8-G7z">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="60"/>
@@ -31,19 +31,32 @@
                                         </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="85" translatesAutoresizingMaskIntoConstraints="NO" id="sk9-QU-ctL">
-                                        <rect key="frame" x="0.0" y="87" width="355" height="55"/>
+                                        <rect key="frame" x="0.0" y="87" width="355" height="65"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaY-fq-aY9">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="55"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="uqv-Mn-ZMi">
+                                                <rect key="frame" x="0.0" y="0.0" width="151" height="65"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of People" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPn-nV-ehw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="151" height="20.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="151" id="S5G-DL-PmN"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="FfF-gf-4eN">
+                                                        <rect key="frame" x="0.0" y="26.5" width="151" height="38.5"/>
+                                                    </pickerView>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="g55-tq-Bb3"/>
+                                                    <constraint firstItem="yPn-nV-ehw" firstAttribute="leading" secondItem="FfF-gf-4eN" secondAttribute="leading" id="YzL-8M-wxH"/>
                                                 </constraints>
-                                                <state key="normal" title="Change Tip"/>
-                                            </button>
+                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10% Tip : $0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLQ-sz-soV">
-                                                <rect key="frame" x="185" y="0.0" width="170" height="55"/>
+                                                <rect key="frame" x="236" y="0.0" width="119" height="65"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="55" id="ah7-vJ-zK7"/>
+                                                    <constraint firstAttribute="height" constant="65" id="ah7-vJ-zK7"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -52,10 +65,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="1ga-rl-IIK">
-                                        <rect key="frame" x="0.0" y="169" width="355" height="45"/>
+                                        <rect key="frame" x="0.0" y="179" width="355" height="45"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fw-oc-sYy">
-                                                <rect key="frame" x="0.0" y="0.0" width="55" height="45"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="You are paying:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fw-oc-sYy">
+                                                <rect key="frame" x="0.0" y="0.0" width="95" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="xUt-48-AHD"/>
                                                 </constraints>
@@ -64,10 +77,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEW-vR-6YB">
-                                                <rect key="frame" x="255" y="0.0" width="100" height="45"/>
+                                                <rect key="frame" x="295" y="0.0" width="60" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="2Yx-eg-psJ"/>
-                                                    <constraint firstAttribute="width" constant="100" id="2bv-k1-hPg"/>
+                                                    <constraint firstAttribute="width" constant="60" id="eyx-JP-6Zk"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -93,6 +106,7 @@
                     <navigationItem key="navigationItem" id="oJ8-GL-IEr"/>
                     <connections>
                         <outlet property="billTextField" destination="RFd-j8-G7z" id="Hy5-l7-lcd"/>
+                        <outlet property="peoplePicker" destination="FfF-gf-4eN" id="e0B-Mr-bW2"/>
                         <outlet property="tipLabel" destination="LLQ-sz-soV" id="SKz-EK-mz4"/>
                         <outlet property="totalAmountLabel" destination="eEW-vR-6YB" id="vvH-iD-VtC"/>
                         <outlet property="totalLabel" destination="2Fw-oc-sYy" id="Oe9-3c-Wvm"/>

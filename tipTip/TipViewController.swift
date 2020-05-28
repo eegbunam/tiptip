@@ -20,10 +20,15 @@ class TipViewController: UIViewController {
     @IBOutlet weak var totalAmountLabel: UILabel!
     
     @IBOutlet weak var totalLabel: UILabel!
+    
+    
+    @IBOutlet weak var peoplePicker: UIPickerView!
+    
         //variables
     let defaults = UserDefaults.standard
     var defaultTip : Double?  = 12.0
-    
+    var globaltotalAmount : Double?
+    var row : Int = 1
     
     
     
@@ -42,6 +47,7 @@ class TipViewController: UIViewController {
         title = "Calculate Tip"
         navigationItem.setRightBarButton(UIBarButtonItem(title: "Change Tip", style: .done, target: self, action: #selector(handleBarButton)), animated: true)
         navigationController?.navigationBar.tintColor = .black
+        peoplePicker.delegate = self
         setUpView()
         
     }
@@ -67,7 +73,7 @@ class TipViewController: UIViewController {
     
         //functions
     
-    func handleTip()  {
+    func handleTip(){
         let stringValue = defaults.string(forKey: "mybill") ?? "no value"
         let tipValue = defaults.double(forKey: "tip")
         
@@ -75,8 +81,9 @@ class TipViewController: UIViewController {
             if let bill = billTextField.text {
                 let finalBill = Double(bill)
                 let tip = Tip(bill: finalBill, percentage: defaultTip)
-                totalAmountLabel.text = tip.totalAmount
+                globaltotalAmount = tip.totolAmountDouble
                 tipLabel.text = tip.discription
+                totalAmountLabel.text = Tip.divide(bill: globaltotalAmount, by: Double(row + 1 ))
                 defaults.set(billTextField.text, forKey: "mybill")
                 
                 
@@ -86,7 +93,8 @@ class TipViewController: UIViewController {
             if let bill = billTextField.text {
                 let finalBill = Double(bill)
                 let tip = Tip(bill: finalBill, percentage: tipValue)
-                totalAmountLabel.text = tip.totalAmount
+                globaltotalAmount =  tip.totolAmountDouble
+                totalAmountLabel.text = Tip.divide(bill: globaltotalAmount, by: Double(row + 1 ))
                 tipLabel.text = tip.discription
                 
             }
@@ -105,6 +113,27 @@ class TipViewController: UIViewController {
     }
     
   
+}
+
+extension TipViewController : UIPickerViewDelegate , UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 5
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "\(row + 1)"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.row = row
+        totalAmountLabel.text = Tip.divide(bill: globaltotalAmount, by: Double(row + 1 ))
+    }
+    
+    
 }
 
 

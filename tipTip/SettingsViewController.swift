@@ -9,13 +9,10 @@
 import UIKit
 
 
-protocol settingsDelegate {
-    func didChangeTip(tip : Double)
-}
+
 
 class SettingsViewController: UIViewController {
     let defaults = UserDefaults.standard
-    var delegate :settingsDelegate?
   
     var changeTipBtn : UIButton = {
         let button = UIButton(frame: .zero)
@@ -63,23 +60,26 @@ class SettingsViewController: UIViewController {
     
     
     @objc func handleChangeTip(){
-        
-        
         guard let text = tipTextField.text else {
             //show notifiation
             return
         }
-        
         guard let doubleValue = Double(text) else {
             //show notification
             return
         }
         
         defaults.set(doubleValue, forKey: "tip")
+        defaults.synchronize()
         navigationController?.popViewController(animated: true)
     
       
     }
+    
+
+    
+    
+    
 
     
     
@@ -88,9 +88,7 @@ class SettingsViewController: UIViewController {
         let firstStack = UIStackView(arrangedSubviews: [tipTextField, changeTipBtn])
         firstStack.translatesAutoresizingMaskIntoConstraints = false
         firstStack.axis = .vertical
-        //Utilities.styleTextField(tipTextField)
         view.addSubview(firstStack)
-    
         firstStack.spacing = 20
         firstStack.distribution = .fillEqually
         firstStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
