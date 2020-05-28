@@ -118,6 +118,8 @@ class TipViewController: UIViewController {
   
 }
 
+//Hnadle PickerView
+
 extension TipViewController : UIPickerViewDelegate , UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

@@ -39,12 +39,15 @@ struct Tip {
         guard let bill = bill , let percentage = percentage else{
             return "$0.00"
         }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = NSLocale.current
         if percentage == 0.0{
-            let tip =  bill + (0.1 * bill)
-            return  String(format: "$%.2f", tip)
+            let tip =  bill + (0.1 * bill) as NSNumber
+            return formatter.string(from: tip)!
         }else{
-            let tip =  bill + (percentage/100 * bill)
-            return  String(format: "$%.2f", tip)
+            let tip =  bill + (percentage/100 * bill) as NSNumber
+             return formatter.string(from: tip)!
         }
         
     }
