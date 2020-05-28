@@ -12,6 +12,18 @@ The following **required** functionality is complete:
 
 * [ ] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
 
+
+The following **optional** features are implemented:
+* [ ] Settings page to change the default tip percentage.
+* [ ] UI animations
+* [ ] Remembering the bill amount across app restarts (if <10mins)
+* [ ] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
+
+The following **additional** features are implemented:
+
+- [ ] Divide total cost amongs multiple people
+
+
 ## License
 
     Copyright [2020] [Ebuka Egbunam Ibekie]
