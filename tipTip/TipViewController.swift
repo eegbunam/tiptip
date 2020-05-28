@@ -47,7 +47,10 @@ class TipViewController: UIViewController {
         title = "Calculate Tip"
         navigationItem.setRightBarButton(UIBarButtonItem(title: "Change Tip", style: .done, target: self, action: #selector(handleBarButton)), animated: true)
         navigationController?.navigationBar.tintColor = .black
+        billTextField.becomeFirstResponder()
+        
         peoplePicker.delegate = self
+        
         setUpView()
         
     }
