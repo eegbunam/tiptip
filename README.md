@@ -28,11 +28,11 @@ The following **additional** features are implemented:
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
-<video width="320" height="240" controls>
+<video>
   <source src='https://www.youtube.com/watch?v=JAcSdXcoZVc'" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<img src='https://www.youtube.com/watch?v=JAcSdXcoZVc' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 
 
 ## License
