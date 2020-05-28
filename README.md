@@ -25,6 +25,13 @@ The following **additional** features are implemented:
 - [ ] Divide total cost amongs multiple people
 
 
+## Video Walkthrough 
+
+Here's a walkthrough of implemented user stories:
+
+<img src='https://www.youtube.com/watch?v=JAcSdXcoZVc' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
 ## License
 
     Copyright [2020] [Ebuka Egbunam Ibekie]
