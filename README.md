@@ -28,9 +28,8 @@ The following **additional** features are implemented:
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
-<a href="//imgur.com/a/eVuyVyf"></a>
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/eVuyVyf"><a href="//imgur.com/a/eVuyVyf"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
+<img src='https://imgur.com/rArshWz.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 Describe any challenges encountered while building the app.
