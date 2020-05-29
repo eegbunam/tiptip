@@ -28,8 +28,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
-<img src='https://drive.google.com/file/d/1sphIvqqXb9zJtQfY3f1wFB_y1hRI2z6i/view?usp=sharing' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/eVuyVyf" data-context="false" ><a href="//imgur.com/a/eVuyVyf"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 
 ## License
